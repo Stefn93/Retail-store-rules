@@ -2,29 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11aec759-f173-45eb-a55d-9e0b4d026133" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/example/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/retail-store-rules-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/retail-store-rules-build.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/example/SimpleFPGrowth.sc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/retail-store-rules.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/retail-store-rules.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$1b6a2576e0d62a9d235e$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$1b6a2576e0d62a9d235e.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$1b6a2576e0d62a9d235e.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$48dcf40e6773c0a5fae2$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$48dcf40e6773c0a5fae2.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$48dcf40e6773c0a5fae2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$85a29b09d5850e3c3f7c$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$85a29b09d5850e3c3f7c.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$85a29b09d5850e3c3f7c.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$931594ed1e6a1dfaf580$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$931594ed1e6a1dfaf580.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$931594ed1e6a1dfaf580.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d0c9bacd69bbe1f8b477$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d0c9bacd69bbe1f8b477.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d0c9bacd69bbe1f8b477.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d1a90f2bf63bcff7589d$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d1a90f2bf63bcff7589d.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d1a90f2bf63bcff7589d.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$2574c3cc5253cafd9906$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$2574c3cc5253cafd9906.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$2574c3cc5253cafd9906.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$30ad9a1b9cd12a0ac548$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$30ad9a1b9cd12a0ac548.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$30ad9a1b9cd12a0ac548.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$3569ec1bdb5409ea8071$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$3569ec1bdb5409ea8071.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$3569ec1bdb5409ea8071.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$567f629f52d2458eb1a3$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$567f629f52d2458eb1a3.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$567f629f52d2458eb1a3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$9f308cb4db0d57e49367$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$9f308cb4db0d57e49367.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$9f308cb4db0d57e49367.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d0096307176d9c96777a$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d0096307176d9c96777a.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d0096307176d9c96777a.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$ed51b0f550824e7cedb6$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$ed51b0f550824e7cedb6.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$ed51b0f550824e7cedb6.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/retail-store-rules-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/retail-store-rules-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/retail-store-rules-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/default/retail-store-rules-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-compile-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-compile-internal.xml" afterDir="false" />
@@ -40,6 +42,7 @@
       <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/$global/ivyConfiguration/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/ivyConfiguration/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" afterDir="false" />
@@ -50,14 +53,15 @@
       <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/first_work.sc" beforeDir="false" afterPath="$PROJECT_DIR$/src/first_work.sc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Main.sc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/first_work.sc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/example/Main.scala" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/.history" beforeDir="false" afterPath="$PROJECT_DIR$/target/.history" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Main.sc" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/Main.sc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Main.sc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/example/Main$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/example/Main$delayedInit$body.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/example/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/retail-store-rules$sources/0.1/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/retail-store-rules$sources/0.1/resolved.xml.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/retail-store-rules$sources/0.1/resolved.xml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/retail-store-rules$sources/0.1/resolved.xml.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/retail-store-rules_2.12/0.1/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/retail-store-rules_2.12/0.1/resolved.xml.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/retail-store-rules_2.12/0.1/resolved.xml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/retail-store-rules_2.12/0.1/resolved.xml.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-compile-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-compile-internal.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-compile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-compile.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-optional.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-optional.xml" afterDir="false" />
@@ -69,28 +73,78 @@
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-scala-tool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-scala-tool.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-test-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-test-internal.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-compile-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-compile-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-compile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-compile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-optional.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-optional.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-provided.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-provided.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-runtime-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-runtime-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-runtime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-runtime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-scala-tool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-scala-tool.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-test-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-test-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-retail-store-rules_2.12-test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/$global/dumpStructure/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/$global/dumpStructure/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/test/externalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/externalDependencyClasspath/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/test/managedClasspath/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/managedClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/.idea/misc.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/.idea/modules/retail-store-rules.iml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/.idea/modules/retail-store-rules.iml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$1b6a2576e0d62a9d235e$.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$1b6a2576e0d62a9d235e.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$1b6a2576e0d62a9d235e.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$48dcf40e6773c0a5fae2$.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$48dcf40e6773c0a5fae2.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$48dcf40e6773c0a5fae2.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$85a29b09d5850e3c3f7c$.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$85a29b09d5850e3c3f7c.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$85a29b09d5850e3c3f7c.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$931594ed1e6a1dfaf580$.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$931594ed1e6a1dfaf580.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$931594ed1e6a1dfaf580.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$d0c9bacd69bbe1f8b477$.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$d0c9bacd69bbe1f8b477.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$d0c9bacd69bbe1f8b477.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$d1a90f2bf63bcff7589d$.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$d1a90f2bf63bcff7589d.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/config-classes/$d1a90f2bf63bcff7589d.class" beforeDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/default/retail-store-rules-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.properties" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/default/retail-store-rules-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.properties" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/default/retail-store-rules-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/default/retail-store-rules-build/scala_2.12/sbt_1.0/0.1.0-SNAPSHOT/resolved.xml.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-compile-internal.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-compile-internal.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-compile.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-compile.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-optional.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-optional.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-plugin.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-plugin.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-pom.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-pom.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-provided.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-provided.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-runtime-internal.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-runtime-internal.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-runtime.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-runtime.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-scala-tool.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-scala-tool.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-test-internal.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-test-internal.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-test.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/scala-2.12/sbt-1.0/resolution-cache/reports/default-retail-store-rules-build-test.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/$global/ivyConfiguration/$global/streams/out" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/$global/ivyConfiguration/$global/streams/out" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/$global/update/$global/streams/out" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/$global/update/$global/streams/out" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/copyResources/$global/streams/out" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/copyResources/$global/streams/out" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/dependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/dependencyClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/exportedProducts/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/exportedProducts/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/externalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/managedClasspath/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/compile/managedClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/dependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/dependencyClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/exportedProducts/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/exportedProducts/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/fullClasspath/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/fullClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/internalDependencyClasspath/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/internalDependencyClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/managedClasspath/$global/streams/export" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/project/target/streams/runtime/managedClasspath/$global/streams/export" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/.history" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/.history" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/default/retail-store-rules$sources/0.1/resolved.xml.properties" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/default/retail-store-rules$sources/0.1/resolved.xml.properties" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/default/retail-store-rules$sources/0.1/resolved.xml.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/default/retail-store-rules$sources/0.1/resolved.xml.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-compile-internal.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-compile-internal.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-compile.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-compile.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-optional.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-optional.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-plugin.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-plugin.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-pom.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-pom.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-provided.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-provided.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-runtime-internal.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-runtime-internal.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-runtime.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-runtime.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-scala-tool.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-scala-tool.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-test-internal.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-test-internal.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-test.xml" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/scala-2.12/resolution-cache/reports/default-retail-store-rules$sources-test.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/streams/$global/$global/dumpStructure/$global/streams/out" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/streams/$global/$global/dumpStructure/$global/streams/out" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/streams/$global/ivyConfiguration/$global/streams/out" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/streams/$global/ivyConfiguration/$global/streams/out" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/streams/$global/update/$global/streams/update_cache_2.12/output" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$USER_HOME$/IdeaProjects/Retail store rules/target/streams/$global/updateClassifiers/$global/streams/out" beforeDir="false" afterPath="$USER_HOME$/IdeaProjects/Retail store rules/target/streams/$global/updateClassifiers/$global/streams/out" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -105,6 +159,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Retail_store_rules$SimpleFPGrowth.ic" NAME="SimpleFPGrowth Coverage Results" MODIFIED="1531590352478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -133,20 +190,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="first_work.sc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/first_work.sc">
+      <file leaf-file-name="SimpleFPGrowth.sc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/example/SimpleFPGrowth.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/example/Main.scala">
+      <file leaf-file-name="FPGrowth.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/example/FPGrowth.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+            <state relative-caret-position="153">
+              <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -156,24 +213,32 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Package Object" />
         <option value="Scala Worksheet" />
+        <option value="Scala Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/build.sbt" />
-        <option value="$PROJECT_DIR$/src/first_work.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/Main.sc" />
         <option value="$PROJECT_DIR$/src/main/scala/example/Main.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/example/Test.sc" />
+        <option value="$PROJECT_DIR$/src/main/scala/example/FPGrowth.scala" />
+        <option value="$PROJECT_DIR$/src/first_work.sc" />
+        <option value="$PROJECT_DIR$/src/main/scala/example/Test.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/example/first_work.sc" />
+        <option value="$PROJECT_DIR$/src/main/scala/example/SimpleFPGrowth.sc" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
@@ -228,8 +293,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="settings.editor.selected.configurable" value="sbt.project.settings.configurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Stefano Romanazzi\Documents\GitHub\Retail-store-rules\src\main\scala\example" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -243,7 +313,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.SimpleFPGrowth">
     <configuration name="Hello" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Hello" />
       <module name="retail-store-rules" />
@@ -265,6 +335,11 @@
       <module name="retail-store-rules" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
+    <configuration name="SimpleFPGrowth" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="SimpleFPGrowth" />
+      <module name="retail-store-rules" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -283,6 +358,26 @@
         <value defaultName="singleModule" />
       </option>
       <patterns />
+    </configuration>
+    <configuration name="Scala Console" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console" temporary="true">
+      <module name="retail-store-rules" />
+      <setting name="vmparams4" value="-Djline.terminal=NONE" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="consoleArgs" value="-usejavacp" />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <module name="" />
+      <setting name="path" value="Test" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="true" />
+      <setting name="useUiWithSbt" value="false" />
+      <envs />
+      <setting name="testKind" value="Class" />
+      <setting name="path" value="Test" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -310,12 +405,16 @@
       <item itemvalue="Application.Hello" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Scala Console.Scala Console" />
+      <item itemvalue="Application.SimpleFPGrowth" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.SimpleFPGrowth" />
         <item itemvalue="Application.Hello" />
+        <item itemvalue="Scala Console.Scala Console" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -379,6 +478,9 @@
       </map>
     </option>
   </component>
+  <component name="ScalaProjectSettings">
+    <option name="ignorePerformance" value="true" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -392,39 +494,48 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="sbt" order="3" weight="0.32972974" />
+      <window_info anchor="right" id="sbt" order="3" weight="0.3295302" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.21367522" />
+      <window_info id="Structure" order="1" sideWeight="0.34900284" side_tool="true" visible="true" weight="0.16375838" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32905984" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32902467" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32902467" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4924138" visible="true" weight="0.23242188" />
-      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" weight="0.32902467" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.2137931" />
-      <window_info id="Structure" order="1" sideWeight="0.5075862" side_tool="true" visible="true" weight="0.23242188" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24972972" />
-      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1994302" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3295302" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32763532" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.65099716" visible="true" weight="0.16375838" />
+      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" weight="0.32763532" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -435,14 +546,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/first_work.sc">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/example/SimpleFPGrowth.sc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/example/Main.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/example/FPGrowth.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
@@ -450,7 +561,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/Main.sc" />
-    <entry file="file://$PROJECT_DIR$/src/first_work.sc">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/example/SimpleFPGrowth.sc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
@@ -468,20 +579,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/first_work.sc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/example/package.scala">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/example/Test.sc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="18" lean-forward="true" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/example/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        <state relative-caret-position="85">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding>
+            <element signature="e#16#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/build.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/example/Test.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/example/SimpleFPGrowth.sc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/example/FPGrowth.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
         </state>
       </provider>
     </entry>
