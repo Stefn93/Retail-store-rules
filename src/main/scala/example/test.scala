@@ -1,10 +1,17 @@
+package example
+
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.mllib.fpm.FPGrowth
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
 import org.apache.spark.rdd.RDD
 
-object SimpleFPGrowth {
+object test {
+  def main(args: Array[String]): Unit = {
 
-    val conf = new SparkConf().setAppName("SimpleFPGrowth")
+
+    val conf = new SparkConf().setAppName("SOME APP NAME").setMaster("local[2]").set("spark.executor.memory", "1g")
+    //val conf = new SparkConf().setAppName("SimpleFPGrowth")
     val sc = new SparkContext(conf)
     // $example on$
     val data = sc.textFile("retail.dat")
@@ -23,5 +30,5 @@ object SimpleFPGrowth {
           + " => " + rule.consequent .mkString("[", ",", "]")
           + ", " + rule.confidence)
     }
-
+  }
 }
