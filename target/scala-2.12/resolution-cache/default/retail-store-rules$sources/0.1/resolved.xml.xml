@@ -4,7 +4,7 @@
 		module="retail-store-rules$sources"
 		revision="0.1"
 		status="integration"
-		publication="20180714185620"
+		publication="20180716110258"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
