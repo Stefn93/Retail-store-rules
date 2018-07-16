@@ -17,13 +17,13 @@ object test {
     val data = sc.textFile("retail.dat")
     val transactions: RDD[Array[String]] = data.map(s => s.trim.split(' '))
     val fpg = new FPGrowth()
-      .setMinSupport(0.2)
+      .setMinSupport(0.1)
       .setNumPartitions(10)
     val model = fpg.run(transactions)
     model.freqItemsets.collect().foreach { itemset =>
       println(itemset.items.mkString("[", ",", "]") + ", " + itemset.freq)
     }
-    val minConfidence = 0.8
+    val minConfidence = 0.2
     model.generateAssociationRules(minConfidence).collect().foreach { rule =>
       println(
         rule.antecedent.mkString("[", ",", "]")
