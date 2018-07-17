@@ -1,7 +1,7 @@
 package example
 
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.mllib.fpm.FPGrowth
+//import org.apache.spark.mllib.fpm.FPGrowth
 import org.apache.spark.rdd.RDD
 
 object test {
@@ -14,7 +14,8 @@ object test {
     // $example on$
     val data = sc.textFile("retail.dat")
     val transactions: RDD[Array[String]] = data.map(s => s.trim.split(' '))
-    val fpg = new FPGrowth()
+    data.collect().foreach(println)
+    val fpg = new CustomFPGrowth()
       .setMinSupport(0.1)
       .setNumPartitions(10)
     val model = fpg.run(transactions)
