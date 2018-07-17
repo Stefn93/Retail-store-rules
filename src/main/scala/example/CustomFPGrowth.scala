@@ -1,6 +1,9 @@
 package example
 
 import java.{util => ju}
+
+//import example.FPTree.Node
+
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.reflect.ClassTag
@@ -9,6 +12,7 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.mllib.fpm.FPGrowthModel
 import org.apache.spark.mllib.fpm.FPGrowth._
+
 import scala.collection.mutable.ListBuffer
 
 
@@ -76,7 +80,7 @@ class CustomFPGrowth(private var minSupport: Double,
       .filter(_._2 >= minCount)         // Filtra sulla soglia di occorrenze minima
       .collect()                        // Restituisce l'HashMap
       .sortBy(-_._2)                    // - ordine decrescente, _._2 considerando il numero di occorrenze
-      .map(_._1)                        // Da verificare: Ritorna una lista contenente solo gli item che passano la soglia minima
+      .map(_._1)                        // Ritorna una lista contenente solo gli item che passano la soglia minima
   }
 
   /**
@@ -93,12 +97,18 @@ class CustomFPGrowth(private var minSupport: Double,
                                                freqItems: Array[Item],
                                                partitioner: Partitioner): RDD[FreqItemset[Item]] = {
     val itemToRank = freqItems.zipWithIndex.toMap
-    data.flatMap { transaction =>
+    val x = data.flatMap { transaction =>
       genCondTransactions(transaction, itemToRank, partitioner)
-    }.aggregateByKey(new FPTree[Int], partitioner.numPartitions)(
-      (tree, transaction) => tree.add(transaction, 1L),
+    }
+    /** x contiene la lista delle transazioni condizionate su un singolo item */
+
+     val y = x.aggregateByKey(new FPTree[Int], partitioner.numPartitions)(
+      (tree, transaction) => tree.add(transaction, 1L), // Combiner logic, aggiungo uno per ogni item processato
       (tree1, tree2) => tree1.merge(tree2))
-      .flatMap { case (part, tree) =>
+    /** AggregateByKey costruisce effettivamente l'FPTree Aggiungendo ogni transazione ad esso e
+      * unendo all'albero tutte le transazioni dei nuovi alberi generati, tutto per ogni partitioner */
+
+    y.flatMap { case (part, tree) =>
         tree.extract(minCount, x => partitioner.getPartition(x) == part)
       }.map { case (ranks, count) =>
       new FreqItemset(ranks.map(i => freqItems(i)).toArray, count)
@@ -167,7 +177,19 @@ object FPGrowth {
   */
 class FPTree[T] extends Serializable {
 
-  import FPTree._
+  class Node[T](val parent: Node[T]) extends Serializable {
+    var item: T = _
+    var count: Long = 0L
+    val children: mutable.Map[T, Node[T]] = mutable.Map.empty
+
+    def isRoot: Boolean = parent == null
+  }
+
+  /** Summary of an item in an FP-Tree. */
+  private class Summary[T] extends Serializable {
+    var count: Long = 0L
+    val nodes: ListBuffer[Node[T]] = ListBuffer.empty
+  }
 
   val root: Node[T] = new Node(null)
 
@@ -175,27 +197,34 @@ class FPTree[T] extends Serializable {
 
   /** Adds a transaction with count. */
   def add(t: Iterable[T], count: Long = 1L): this.type = {
-    require(count > 0)
-    var curr = root
-    curr.count += count
+    require(count > 0)  // Verifico che la variabile count sia positiva
+    var curr = root     // Parto dalla root dell'albero
+    curr.count += count // La count della radice segna il numero di transazioni proccessate dall'albero
+    // Ciclo per ogni item della transazione
     t.foreach { item =>
+      // Ottengo il summary dell'item considerato per poi aumentarne le occorrenze, altrimenti creo un nuovo summary
       val summary = summaries.getOrElseUpdate(item, new Summary)
       summary.count += count
+      // Ottengo i figli del nodo corrente (partendo dalla radice) e verifico la presenza del mio item
       val child = curr.children.getOrElseUpdate(item, {
+        // Se il mio item non è nell'albero lo creo e lo aggiungo
         val newNode = new Node(curr)
         newNode.item = item
         summary.nodes += newNode
         newNode
       })
+      // Aggiungo la conta del child a prescindere se l'ho preso o l'ho appena creato
       child.count += count
       curr = child
+      // D'ora in poi nel foreach considererò l'item attuale come corrente
     }
-    this
+    this  // Alla fine ritorno l'intero FP-Tree modificato
   }
 
   /** Merges another FP-Tree. */
   def merge(other: FPTree[T]): this.type = {
     other.transactions.foreach { case (t, c) =>
+      println("Transazioni che unisco al tree: " + other.transactions.foreach(println))
       add(t, c)
     }
     this
@@ -226,8 +255,10 @@ class FPTree[T] extends Serializable {
   private def getTransactions(node: Node[T]): Iterator[(List[T], Long)] = {
     var count = node.count
     node.children.iterator.flatMap { case (item, child) =>
+      println("item: " + item + "    child: " + child)
       getTransactions(child).map { case (t, c) =>
         count -= c
+        println("t: " + t + "    c: " + c + "    count: " + count)
         (item :: t, c)
       }
     } ++ {
@@ -253,23 +284,5 @@ class FPTree[T] extends Serializable {
         Iterator.empty
       }
     }
-  }
-}
-
-object FPTree {
-
-  /** Representing a node in an FP-Tree. */
-  class Node[T](val parent: Node[T]) extends Serializable {
-    var item: T = _
-    var count: Long = 0L
-    val children: mutable.Map[T, Node[T]] = mutable.Map.empty
-
-    def isRoot: Boolean = parent == null
-  }
-
-  /** Summary of an item in an FP-Tree. */
-  private class Summary[T] extends Serializable {
-    var count: Long = 0L
-    val nodes: ListBuffer[Node[T]] = ListBuffer.empty
   }
 }
