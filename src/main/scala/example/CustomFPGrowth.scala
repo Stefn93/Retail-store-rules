@@ -35,15 +35,22 @@ class CustomFPGrowth(private var minSupport: Double,
 
 
   def run[Item: ClassTag](data: RDD[Array[Item]]): FPGrowthModel[Item] = {
-    if (data.getStorageLevel == StorageLevel.NONE) {
+    if (data.getStorageLevel == StorageLevel.NONE) {  // Livello del disco in cui viene caricato il dataset
       logWarning("Input data is not cached.")
     }
+    // Numero di transazioni
     val count = data.count()
+    // Calcola il minimo numero di occorrenze per rispettare la soglia, per difetto
     val minCount = math.ceil(minSupport * count).toLong
+    // Se non imposti automaticamente numPartitions, importa numParts come numero di cores della macchina
     val numParts = if (numPartitions > 0) numPartitions else data.partitions.length
+    // Definisce un HashPartitioner che trova il nodo di computazione per ogni partizione in base alla funzione hash % numParts
     val partitioner = new HashPartitioner(numParts)
+    // Ottiene gli item frequenti a partire dai dati e dalle loro partizioni
     val freqItems = genFreqItems(data, minCount, partitioner)
+    // Ottiene gli itemset frequenti a partire dai freqItems
     val freqItemsets = genFreqItemsets(data, minCount, freqItems, partitioner)
+    //Risultato finale
     new FPGrowthModel(freqItemsets)
   }
 
@@ -57,18 +64,19 @@ class CustomFPGrowth(private var minSupport: Double,
                                             data: RDD[Array[Item]],
                                             minCount: Long,
                                             partitioner: Partitioner): Array[Item] = {
+
     data.flatMap { t =>
       val uniq = t.toSet
       if (t.length != uniq.size) {
         throw new SparkException(s"Items in a transaction must be unique but got ${t.toSeq}.")
       }
       t
-    }.map(v => (v, 1L))
-      .reduceByKey(partitioner, _ + _)
-      .filter(_._2 >= minCount)
-      .collect()
-      .sortBy(-_._2)
-      .map(_._1)
+    }.map(v => (v, 1L))                 // Associa ad ogni elemento della transazione il valore 1
+      .reduceByKey(partitioner, _ + _)  // Somma aggregando per chiave
+      .filter(_._2 >= minCount)         // Filtra sulla soglia di occorrenze minima
+      .collect()                        // Restituisce l'HashMap
+      .sortBy(-_._2)                    // - ordine decrescente, _._2 considerando il numero di occorrenze
+      .map(_._1)                        // Da verificare: Ritorna una lista contenente solo gli item che passano la soglia minima
   }
 
   /**
