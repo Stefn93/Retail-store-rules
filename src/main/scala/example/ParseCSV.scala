@@ -40,6 +40,39 @@ object ParseCSV extends App {
   }
 
   //parseFile()
-  deleteSingleTransations()
+  //deleteSingleTransations()
+
+
+
+  def calculateMultipleSupport(): Unit =
+  {
+    val bufferedSource = io.Source.fromFile("online_retail_edit.csv")
+    val pw = new PrintWriter(new File("price-value.csv"))
+
+    var map = scala.collection.mutable.Map[String,Float]()
+    var newMap = scala.collection.mutable.Map[String,Float]()
+
+    for (line <- bufferedSource.getLines)
+      {
+        val cols = line.split(",").map(_.trim)
+        map.put(cols(1), cols(5).toFloat)
+      }
+
+    bufferedSource.getLines
+
+    val max : Float = map.maxBy(_._2)._2
+    val min : Float= map.minBy(_._2)._2
+
+    val bufferedSource2 = io.Source.fromFile("online_retail_edit.csv")
+    for (line <- bufferedSource2.getLines())
+    {
+      var cols = line.split(",").map(_.trim)
+      newMap.put(cols(1), 1 - (cols(5).toFloat / max))
+    }
+
+    newMap
+  }
+
+  //calculateMultipleSupport()
 
 }

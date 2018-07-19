@@ -82,7 +82,7 @@ class CustomFPGrowth(private var minSupport: Double,
       .sortBy(-_._2)                    // - ordine decrescente, _._2 considerando il numero di occorrenze
       .map(_._1)                        // Ritorna una lista contenente solo gli item che passano la soglia minima
   }
-
+  ParseCSV.calculateMultipleSupport()
   /**
     * Generate frequent itemsets by building FP-Trees, the extraction is done on each partition.
     * @param data transactions
