@@ -44,18 +44,18 @@ object ParseCSV extends App {
 
 
 
-  def calculateMultipleSupport(): Unit =
+  def calculateMultipleSupport(): scala.collection.mutable.Map[String,Int] =
   {
     val bufferedSource = io.Source.fromFile("online_retail_edit.csv")
     val pw = new PrintWriter(new File("price-value.csv"))
 
-    var map = scala.collection.mutable.Map[String,Float]()
+    var map = scala.collection.mutable.Map[String,Int]()
     var newMap = scala.collection.mutable.Map[String,Float]()
 
     for (line <- bufferedSource.getLines)
       {
         val cols = line.split(",").map(_.trim)
-        map.put(cols(1), cols(5).toFloat)
+        map.put(cols(1), cols(5).toFloat.toInt)
       }
 
     bufferedSource.getLines
@@ -70,7 +70,7 @@ object ParseCSV extends App {
       newMap.put(cols(1), 1 - (cols(5).toFloat / max))
     }
 
-    newMap
+    map
   }
 
   //calculateMultipleSupport()

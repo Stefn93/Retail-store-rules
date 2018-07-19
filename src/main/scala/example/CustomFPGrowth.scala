@@ -68,21 +68,21 @@ class CustomFPGrowth(private var minSupport: Double,
                                             data: RDD[Array[Item]],
                                             minCount: Long,
                                             partitioner: Partitioner): Array[Item] = {
-
+    val adaptive : mutable.Map[String, Int] = ParseCSV.calculateMultipleSupport() //Aggiunta
     data.flatMap { t =>
       val uniq = t.toSet
       if (t.length != uniq.size) {
         throw new SparkException(s"Items in a transaction must be unique but got ${t.toSeq}.")
       }
       t
-    }.map(v => (v, 1L))                 // Associa ad ogni elemento della transazione il valore 1
+    }.map(v => (v, adaptive.getOrElse(v.toString, 1)))  // Associa ad ogni item della transazione il valore 1 //Precedente: secondo parametro 1L
       .reduceByKey(partitioner, _ + _)  // Somma aggregando per chiave
       .filter(_._2 >= minCount)         // Filtra sulla soglia di occorrenze minima
       .collect()                        // Restituisce l'HashMap
       .sortBy(-_._2)                    // - ordine decrescente, _._2 considerando il numero di occorrenze
       .map(_._1)                        // Ritorna una lista contenente solo gli item che passano la soglia minima
   }
-  ParseCSV.calculateMultipleSupport()
+
   /**
     * Generate frequent itemsets by building FP-Trees, the extraction is done on each partition.
     * @param data transactions
