@@ -178,8 +178,8 @@ object FPGrowth {
 class FPTree[T] extends Serializable {
 
   class Node[T](val parent: Node[T]) extends Serializable {
-    var item: T = _
-    var count: Long = 0L
+    var item: T = _   //Identificatore dell'Item
+    var count: Long = 0L    //
     val children: mutable.Map[T, Node[T]] = mutable.Map.empty
 
     def isRoot: Boolean = parent == null
@@ -224,7 +224,7 @@ class FPTree[T] extends Serializable {
   /** Merges another FP-Tree. */
   def merge(other: FPTree[T]): this.type = {
     other.transactions.foreach { case (t, c) =>
-      println("Transazioni che unisco al tree: " + other.transactions.foreach(println))
+      //println("Transazioni che unisco al tree: " + other.transactions.foreach(println))
       add(t, c)
     }
     this
@@ -255,10 +255,10 @@ class FPTree[T] extends Serializable {
   private def getTransactions(node: Node[T]): Iterator[(List[T], Long)] = {
     var count = node.count
     node.children.iterator.flatMap { case (item, child) =>
-      println("item: " + item + "    child: " + child)
+      //println("item: " + item + "    child: " + child)
       getTransactions(child).map { case (t, c) =>
         count -= c
-        println("t: " + t + "    c: " + c + "    count: " + count)
+        //println("t: " + t + "    c: " + c + "    count: " + count)
         (item :: t, c)
       }
     } ++ {

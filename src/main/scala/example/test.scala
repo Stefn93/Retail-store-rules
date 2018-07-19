@@ -15,11 +15,11 @@ object test {
     rootLogger.setLevel(Level.ERROR)
 
     /** FP-Growth algorithm and Itemset Generation */
-    val data = sc.textFile("retail.dat")
-    val transactions: RDD[Array[String]] = data.map(s => s.trim.split(' '))
+    val data = sc.textFile("processed-transactions.csv")
+    val transactions: RDD[Array[String]] = data.map(s => s.trim.split(' ').distinct)
     //data.collect().foreach(println)
     val fpg = new CustomFPGrowth()
-      .setMinSupport(0.05)
+      .setMinSupport(0.02)
       .setNumPartitions(10)
     val model = fpg.run(transactions)
     model.freqItemsets.collect().foreach { itemset =>
@@ -27,7 +27,7 @@ object test {
     }
 
     /** Rule generation with minConfidence threshold */
-    val minConfidence = 0.1
+    val minConfidence = 0.01
     model.generateAssociationRules(minConfidence).collect().foreach { rule =>
       println(
         rule.antecedent.mkString("[", ",", "]")
