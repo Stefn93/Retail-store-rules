@@ -1,8 +1,10 @@
-package example
+package recommender
 import scala.io
 import java.io._
 
-object ParseCSV extends App {
+import scala.collection.mutable.ArrayBuffer
+
+object DatasetProcessing extends App {
 
   var transactions = ""
 
@@ -27,7 +29,7 @@ object ParseCSV extends App {
     pw.close()
   }
 
-  def deleteSingleTransations(): Unit = {
+  def deleteNoise(): Unit = {
     val bufferedSource = io.Source.fromFile("transactions.csv")
     val pw = new PrintWriter(new File("processed-transactions.csv" ))
     for (line <- bufferedSource.getLines) {
@@ -39,10 +41,8 @@ object ParseCSV extends App {
     pw.close()
   }
 
-  //parseFile()
-  //deleteSingleTransations()
-
-
+  //createTransactionFile()
+  //deleteNoise()
 
   def calculateMultipleSupport(): scala.collection.mutable.Map[String,Int] =
   {
@@ -70,9 +70,23 @@ object ParseCSV extends App {
       newMap.put(cols(1), 1 - (cols(5).toFloat / max))
     }
 
+    //newMap
     map
   }
-
   //calculateMultipleSupport()
+
+  def getDescriptionFromID(id: Array[String]): Array[String] = {
+    val bufferedSource = io.Source.fromFile("online_retail_edit.csv")
+    var id_description = scala.collection.mutable.Map[String,String]()
+    for (line <- bufferedSource.getLines)
+    {
+      val cols = line.split(",").map(_.trim)
+      id_description.put(cols(1), cols(2))
+    }
+    bufferedSource.close
+    var res = ArrayBuffer[String]()
+    id.foreach( s => res += id_description.getOrElse(s, ""))
+    res.toArray
+  }
 
 }

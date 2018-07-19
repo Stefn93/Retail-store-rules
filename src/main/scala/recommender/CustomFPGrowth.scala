@@ -1,4 +1,4 @@
-package example
+package recommender
 
 import java.{util => ju}
 
@@ -68,7 +68,7 @@ class CustomFPGrowth(private var minSupport: Double,
                                             data: RDD[Array[Item]],
                                             minCount: Long,
                                             partitioner: Partitioner): Array[Item] = {
-    val adaptive : mutable.Map[String, Int] = ParseCSV.calculateMultipleSupport() //Aggiunta
+    val adaptive : mutable.Map[String, Int] = DatasetProcessing.calculateMultipleSupport() //Aggiunta
     data.flatMap { t =>
       val uniq = t.toSet
       if (t.length != uniq.size) {
