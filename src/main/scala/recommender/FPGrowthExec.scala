@@ -7,7 +7,6 @@ import org.apache.spark.rdd.RDD
 object FPGrowthExec {
   def main(args: Array[String]): Unit = {
     /** Initial configuration */
-    val start = System.currentTimeMillis()
 
     /** PROGRAM START */
     val conf = new SparkConf().setAppName("Custom FP Growth").setMaster("local[2]").set("spark.executor.memory", "1g")
@@ -23,28 +22,38 @@ object FPGrowthExec {
     val fpg = new CustomFPGrowth()
       .setMinSupport(0.025)
       .setNumPartitions(10)
+    /** Start time execution calculation*/
+    val itemSetTime = System.currentTimeMillis()
     val model = fpg.run(transactions)
+    val endItemSetTime = System.currentTimeMillis()-itemSetTime
+
     model.freqItemsets.collect().foreach {
-      itemset => //println(DatasetProcessing.getDescriptionFromID(itemset.items).mkString("[", ",", "]") + ", " + itemset.freq)
-      println(itemset.items.mkString("[", ",", "]") + ", " + itemset.freq) //OLD VERSION
+      itemset => println(DatasetProcessing.getDescriptionFromID(itemset.items).mkString("[", ",", "]") + ", " + itemset.freq)
+      //println(itemset.items.mkString("[", ",", "]") + ", " + itemset.freq) //OLD VERSION
     }
 
     /** Rule generation with minConfidence threshold */
     val minConfidence = 0.01
-    model.generateAssociationRules(minConfidence).collect().foreach { rule =>
-      /*
+    val rulesTime = System.currentTimeMillis()
+    val rules = model.generateAssociationRules(minConfidence)
+    val endRulesTime = System.currentTimeMillis()-rulesTime
+
+      rules.collect().foreach { rule =>
+
       println(
         DatasetProcessing.getDescriptionFromID(rule.antecedent).mkString("[", ",", "]")
           + " => " + DatasetProcessing.getDescriptionFromID(rule.consequent).mkString("[", ",", "]")
           + ", " + rule.confidence)
-      */
-      println(
+
+      /*println(
         rule.antecedent.mkString("[", ",", "]")
           + " => " + rule.consequent.mkString("[", ",", "]")
-          + ", " + rule.confidence)
+          + ", " + rule.confidence)*/
     }
 
     /** PROGRAM END */
-    println("\nTotal Elapsed time: " + ((System.currentTimeMillis() - start) / 1000) + " s")
+    println("\nItemsets generation elapsed time: " + endItemSetTime + " ms")
+    println("\nRule generation elapsed time: " + endRulesTime + " ms")
+    println("\nTotal elapsed time: " + (endItemSetTime + endRulesTime) + " ms")
   }
 }
