@@ -21,24 +21,30 @@ object FPGrowthExec {
     val transactions: RDD[Array[String]] = data.map(s => s.trim.split(' ').distinct)  //Added Distinct
     //data.collect().foreach(println)
     val fpg = new CustomFPGrowth()
-      .setMinSupport(0.02)
+      .setMinSupport(0.025)
       .setNumPartitions(10)
     val model = fpg.run(transactions)
     model.freqItemsets.collect().foreach {
-      itemset => println(DatasetProcessing.getDescriptionFromID(itemset.items).mkString("[", ",", "]") + ", " + itemset.freq)
-      //itemset.items.mkString("[", ",", "]") + ", " + itemset.freq) OLD VERSION
+      itemset => //println(DatasetProcessing.getDescriptionFromID(itemset.items).mkString("[", ",", "]") + ", " + itemset.freq)
+      println(itemset.items.mkString("[", ",", "]") + ", " + itemset.freq) //OLD VERSION
     }
 
     /** Rule generation with minConfidence threshold */
     val minConfidence = 0.01
     model.generateAssociationRules(minConfidence).collect().foreach { rule =>
+      /*
       println(
         DatasetProcessing.getDescriptionFromID(rule.antecedent).mkString("[", ",", "]")
           + " => " + DatasetProcessing.getDescriptionFromID(rule.consequent).mkString("[", ",", "]")
           + ", " + rule.confidence)
+      */
+      println(
+        rule.antecedent.mkString("[", ",", "]")
+          + " => " + rule.consequent.mkString("[", ",", "]")
+          + ", " + rule.confidence)
     }
 
     /** PROGRAM END */
-    println("\nTotal Elapsed time: " + (System.currentTimeMillis() - start) + " ms")
+    println("\nTotal Elapsed time: " + ((System.currentTimeMillis() - start) / 1000) + " s")
   }
 }

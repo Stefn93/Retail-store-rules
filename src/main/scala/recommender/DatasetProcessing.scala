@@ -55,10 +55,22 @@ object DatasetProcessing extends App {
     for (line <- bufferedSource.getLines)
       {
         val cols = line.split(",").map(_.trim)
-        map.put(cols(1), cols(5).toFloat.toInt)
+        val key = cols(1)
+        val value = cols(5).toFloat.toInt
+        if(!map.contains(key))
+          {
+            map.put(key, value)
+          }
+        else
+          {
+            val prevVal = map.getOrElse(key, 0)
+            val newVal = math.ceil((value+prevVal)/2).toInt
+            map.put(key, newVal)
+          }
       }
 
-    bufferedSource.getLines
+
+    /*
 
     val max : Float = map.maxBy(_._2)._2
     val min : Float= map.minBy(_._2)._2
@@ -69,8 +81,8 @@ object DatasetProcessing extends App {
       var cols = line.split(",").map(_.trim)
       newMap.put(cols(1), 1 - (cols(5).toFloat / max))
     }
+    */
 
-    //newMap
     map
   }
   //calculateMultipleSupport()
