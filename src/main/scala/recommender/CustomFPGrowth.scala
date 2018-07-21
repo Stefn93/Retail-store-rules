@@ -96,6 +96,7 @@ class CustomFPGrowth(private var minSupport: Double,
                                                minCount: Long,
                                                freqItems: Array[Item],
                                                partitioner: Partitioner): RDD[FreqItemset[Item]] = {
+    val adaptive : mutable.Map[String, Int] = DatasetProcessing.calculateMultipleSupport() //Aggiunta
     val itemToRank = freqItems.zipWithIndex.toMap
     val x = data.flatMap { transaction =>
       genCondTransactions(transaction, itemToRank, partitioner)
@@ -221,11 +222,50 @@ class FPTree[T] extends Serializable {
     this  // Alla fine ritorno l'intero FP-Tree modificato
   }
 
+  /** Adds a transaction with count. */
+  def addMMS(t: Iterable[T], count: Long = 1L, adaptive : mutable.Map[String,Int]): this.type = {
+    require(count > 0)  // Verifico che la variabile count sia positiva
+    var curr = root     // Parto dalla root dell'albero
+    curr.count += count
+    //curr.count += count // La count della radice segna il numero di transazioni proccessate dall'albero
+    // Ciclo per ogni item della transazione
+    t.foreach { item =>
+      // Ottengo il summary dell'item considerato per poi aumentarne le occorrenze, altrimenti creo un nuovo summary
+      val summary = summaries.getOrElseUpdate(item, new Summary)
+      //
+      // summary.count += adaptive.getOrElse(, 1)
+      //summary.count += count
+      // Ottengo i figli del nodo corrente (partendo dalla radice) e verifico la presenza del mio item
+      val child = curr.children.getOrElseUpdate(item, {
+        // Se il mio item non è nell'albero lo creo e lo aggiungo
+        val newNode = new Node(curr)
+        newNode.item = item
+        summary.nodes += newNode
+        newNode
+      })
+      // Aggiungo la conta del child a prescindere se l'ho preso o l'ho appena creato
+      child.count += adaptive.getOrElse(item.toString, 1)
+      //child.count += count
+      curr = child
+      // D'ora in poi nel foreach considererò l'item attuale come corrente
+    }
+    this  // Alla fine ritorno l'intero FP-Tree modificato
+  }
+
   /** Merges another FP-Tree. */
   def merge(other: FPTree[T]): this.type = {
     other.transactions.foreach { case (t, c) =>
       //println("Transazioni che unisco al tree: " + other.transactions.foreach(println))
       add(t, c)
+    }
+    this
+  }
+
+  /** Merges another FP-Tree. */
+  def mergeMMS(other: FPTree[T], adaptive : mutable.Map[String, Int]): this.type = {
+    other.transactions.foreach { case (t, c) =>
+      //println("Transazioni che unisco al tree: " + other.transactions.foreach(println))
+      addMMS(t, c, adaptive)
     }
     this
   }
