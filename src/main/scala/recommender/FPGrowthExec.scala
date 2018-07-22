@@ -20,8 +20,9 @@ object FPGrowthExec {
     val transactions: RDD[Array[String]] = data.map(s => s.trim.split(' ').distinct)  //Added Distinct
     //data.collect().foreach(println)
     val fpg = new CustomFPGrowth()
-      .setMinSupport(0.025)
+      .setMinSupport(0.075)
       .setNumPartitions(10)
+      .setAdaptiveMap(DatasetProcessing.calculateMultipleSupport())
     /** Start time execution calculation*/
     val itemSetTime = System.currentTimeMillis()
     val model = fpg.run(transactions)
@@ -33,7 +34,7 @@ object FPGrowthExec {
     }
 
     /** Rule generation with minConfidence threshold */
-    val minConfidence = 0.01
+    val minConfidence = 0.2
     val rulesTime = System.currentTimeMillis()
     val rules = model.generateAssociationRules(minConfidence)
     val endRulesTime = System.currentTimeMillis()-rulesTime

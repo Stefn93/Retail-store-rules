@@ -2,12 +2,10 @@ package recommender
 
 import java.{util => ju}
 
-//import example.FPTree.Node
-
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.reflect.ClassTag
-import org.apache.spark.{HashPartitioner, Logging, Partitioner, SparkContext, SparkException}
+import org.apache.spark.{HashPartitioner, Logging, Partitioner, SparkException}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.mllib.fpm.FPGrowthModel
@@ -17,9 +15,10 @@ import scala.collection.mutable.ListBuffer
 
 
 class CustomFPGrowth(private var minSupport: Double,
-                           private var numPartitions: Int) extends Logging with Serializable {
+                     private var numPartitions: Int,
+                     private var adaptive: mutable.Map[String, Int]     ) extends Logging with Serializable {
 
-  def this() = this(0.3, -1)
+  def this() = this(0.3, -1, DatasetProcessing.calculateMultipleSupport())
 
 
   def setMinSupport(minSupport: Double): this.type = {
@@ -34,6 +33,12 @@ class CustomFPGrowth(private var minSupport: Double,
     require(numPartitions > 0,
       s"""Number of partitions must be positive but got $numPartitions""")
     this.numPartitions = numPartitions
+    this
+  }
+
+  def setAdaptiveMap(adaptive: mutable.Map[String, Int]) : this.type = {
+    require(adaptive.nonEmpty, "Multiple minimum support calculation failed.")
+    this.adaptive = adaptive
     this
   }
 
@@ -68,7 +73,6 @@ class CustomFPGrowth(private var minSupport: Double,
                                             data: RDD[Array[Item]],
                                             minCount: Long,
                                             partitioner: Partitioner): Array[Item] = {
-    val adaptive : mutable.Map[String, Int] = DatasetProcessing.calculateMultipleSupport() //Aggiunta
     data.flatMap { t =>
       val uniq = t.toSet
       if (t.length != uniq.size) {
@@ -96,22 +100,22 @@ class CustomFPGrowth(private var minSupport: Double,
                                                minCount: Long,
                                                freqItems: Array[Item],
                                                partitioner: Partitioner): RDD[FreqItemset[Item]] = {
-    val adaptive : mutable.Map[String, Int] = DatasetProcessing.calculateMultipleSupport() //Aggiunta
     val itemToRank = freqItems.zipWithIndex.toMap
     val x = data.flatMap { transaction =>
       genCondTransactions(transaction, itemToRank, partitioner)
     }
     /** x contiene la lista delle transazioni condizionate su un singolo item */
 
-     val y = x.aggregateByKey(new FPTree[Int], partitioner.numPartitions)(
+     val y = x.aggregateByKey(new FPTree[Int](adaptive), partitioner.numPartitions)(
       (tree, transaction) => tree.add(transaction, 1L), // Combiner logic, aggiungo uno per ogni item processato
       (tree1, tree2) => tree1.merge(tree2))
     /** AggregateByKey costruisce effettivamente l'FPTree Aggiungendo ogni transazione ad esso e
       * unendo all'albero tutte le transazioni dei nuovi alberi generati, tutto per ogni partitioner */
 
     y.flatMap { case (part, tree) =>
-        tree.extract(minCount, x => partitioner.getPartition(x) == part)
+        tree.extractMMS(minCount, freqItems, x => partitioner.getPartition(x) == part)
       }.map { case (ranks, count) =>
+      //println("ranks: " + ranks.map(i=>freqItems(i)).toArray.mkString(",") + ", count: " + count)
       new FreqItemset(ranks.map(i => freqItems(i)).toArray, count)
     }
   }
@@ -176,7 +180,7 @@ object FPGrowth {
   * FP-Tree data structure used in FP-Growth.
   * @tparam T item type
   */
-class FPTree[T] extends Serializable {
+class FPTree[T](adaptive: mutable.Map[String, Int]) extends Serializable {
 
   class Node[T](val parent: Node[T]) extends Serializable {
     var item: T = _   //Identificatore dell'Item
@@ -184,12 +188,16 @@ class FPTree[T] extends Serializable {
     val children: mutable.Map[T, Node[T]] = mutable.Map.empty
 
     def isRoot: Boolean = parent == null
+
+    override def toString: String = "item: " + item.toString + ", count: " + count.toString
   }
 
   /** Summary of an item in an FP-Tree. */
   private class Summary[T] extends Serializable {
     var count: Long = 0L
     val nodes: ListBuffer[Node[T]] = ListBuffer.empty
+
+    override def toString: String = nodes.toString()
   }
 
   val root: Node[T] = new Node(null)
@@ -272,7 +280,7 @@ class FPTree[T] extends Serializable {
 
   /** Gets a subtree with the suffix. */
   private def project(suffix: T): FPTree[T] = {
-    val tree = new FPTree[T]
+    val tree = new FPTree[T](adaptive)
     if (summaries.contains(suffix)) {
       val summary = summaries(suffix)
       summary.nodes.foreach { node =>
@@ -311,11 +319,13 @@ class FPTree[T] extends Serializable {
   }
 
   /** Extracts all patterns with valid suffix and minimum count. */
-  def extract(
+  def extract[Item: ClassTag](
                minCount: Long,
                validateSuffix: T => Boolean = _ => true): Iterator[(List[T], Long)] = {
     summaries.iterator.flatMap { case (item, summary) =>
       if (validateSuffix(item) && summary.count >= minCount) {
+        //println("ranks: " + ranks.map(i=>freqItems(i)).toArray.mkString(",") + ", count: " + count)
+        //println(summary.nodes.map(i => freqItems(i.item.toString.toInt)).toArray.mkString(","))
         Iterator.single((item :: Nil, summary.count)) ++
           project(item).extract(minCount).map { case (t, c) =>
             (item :: t, c)
@@ -325,4 +335,38 @@ class FPTree[T] extends Serializable {
       }
     }
   }
+
+  def extractMMS[Item: ClassTag](
+                               minCount: Long, freqItems: Array[Item],
+                               validateSuffix: T => Boolean = _ => true): Iterator[(List[T], Long)] = {
+    summaries.iterator.flatMap { case (item, summary) =>
+      if (validateSuffix(item) && getMinimumPrice(freqItems, summary) * summary.count >= minCount) {
+        //println("prezzo: " +getMinimumPrice(freqItems, summary) + "conta: " +  summary.count)
+        Iterator.single((item :: Nil, summary.count)) ++
+          project(item).extractMMS(minCount, freqItems).map { case (t, c) =>
+            (item :: t, c)
+          }
+      } else {
+        Iterator.empty
+      }
+    }
+  }
+
+  def getMinimumPrice[Item: ClassTag](freqItems: Array[Item], summary: Summary[T]): Int ={
+    val items = summary.nodes.map(i => freqItems(i.item.toString.toInt)).toArray
+    var truth : mutable.Map[String, Int] = mutable.Map[String, Int]()
+    for(e <- items) yield {
+      truth += (e.toString -> adaptive.getOrElse(e.toString, 1))
+    }
+
+    var res = 0
+    if ((truth.minBy(_._2)_2) > 5){
+      res = 5
+    }
+    else{
+      res = math.ceil(truth.minBy(_._2)_2).toInt
+    }
+    res
+  }
 }
+
