@@ -360,11 +360,20 @@ class FPTree[T](adaptive: mutable.Map[String, Int]) extends Serializable {
     }
 
     var res = 0
-    if ((truth.minBy(_._2)_2) > 5){
-      res = 5
+    if ((truth.maxBy(_._2)_2) <= 1){
+      res = 1
+    }
+    else if( (truth.maxBy(_._2)_2) >= 1 && (truth.maxBy(_._2)_2) < 5){
+      res = 2
+    }
+    else if((truth.maxBy(_._2)_2) >= 5 && (truth.maxBy(_._2)_2) < 10){
+      res = 3
+    }
+    else if((truth.maxBy(_._2)_2) >= 10 && (truth.maxBy(_._2)_2) < 100){
+      res = 4
     }
     else{
-      res = math.ceil(truth.minBy(_._2)_2).toInt
+      res = 5
     }
     res
   }
