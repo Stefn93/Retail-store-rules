@@ -2,6 +2,8 @@ package recommender
 
 import java.{util => ju}
 
+import org.apache.spark.mllib.fpm.AssociationRules.Rule
+
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.reflect.ClassTag
@@ -84,7 +86,7 @@ class CustomFPGrowth(private var minSupport: Double,
       .filter(_._2 >= minCount)         // Filtra sulla soglia di occorrenze minima
       .collect()                        // Restituisce l'HashMap
       .sortBy(-_._2)                    // - ordine decrescente, _._2 considerando il numero di occorrenze
-      .map(_._1)                        // Ritorna una lista contenente solo gli item che passano la soglia minima
+      .map(_._1)                        // Ritorna una rdd contenente solo gli id degli item (ordinati)
   }
 
   /**
@@ -100,7 +102,7 @@ class CustomFPGrowth(private var minSupport: Double,
                                                minCount: Long,
                                                freqItems: Array[Item],
                                                partitioner: Partitioner): RDD[FreqItemset[Item]] = {
-    val itemToRank = freqItems.zipWithIndex.toMap
+    val itemToRank = freqItems.zipWithIndex.toMap   //Associa un indice ad ogni item, crea una ranking list dove in prima posizione c'è l'item che aveva più occorrenze
     val x = data.flatMap { transaction =>
       genCondTransactions(transaction, itemToRank, partitioner)
     }
@@ -131,17 +133,23 @@ class CustomFPGrowth(private var minSupport: Double,
                                                    transaction: Array[Item],
                                                    itemToRank: Map[Item, Int],
                                                    partitioner: Partitioner): mutable.Map[Int, Array[Int]] = {
-    val output = mutable.Map.empty[Int, Array[Int]]
+    val output = mutable.Map.empty[Int, Array[Int]]   //Il map conterrà coppie dove ad ogni transazione condizionale è associata una partizione
     // Filter the basket by frequent items pattern and sort their ranks.
-    val filtered = transaction.flatMap(itemToRank.get)
-    ju.Arrays.sort(filtered)
+    val filtered = transaction.flatMap(itemToRank.get)    //Contiene le posizioni degli item della transazione nella ranking list
+    ju.Arrays.sort(filtered)  //Ordina la lista dei di rank della transazione in ordine crescente
     val n = filtered.length
+    //println("n items: " + n)
     var i = n - 1
     while (i >= 0) {
       val item = filtered(i)
+      //println("rank: " + item)
       val part = partitioner.getPartition(item)
+      //println("part:" + part)
+
       if (!output.contains(part)) {
         output(part) = filtered.slice(0, i + 1)
+        //("output: ")
+        //output.foreach(println)
       }
       i -= 1
     }
@@ -340,7 +348,7 @@ class FPTree[T](adaptive: mutable.Map[String, Int]) extends Serializable {
                                minCount: Long, freqItems: Array[Item],
                                validateSuffix: T => Boolean = _ => true): Iterator[(List[T], Long)] = {
     summaries.iterator.flatMap { case (item, summary) =>
-      if (validateSuffix(item) && getMinimumPrice(freqItems, summary) * summary.count >= minCount) {
+      if (validateSuffix(item) && getMultiplier(freqItems, summary) * summary.count >= minCount) {
         //println("prezzo: " +getMinimumPrice(freqItems, summary) + "conta: " +  summary.count)
         Iterator.single((item :: Nil, summary.count)) ++
           project(item).extractMMS(minCount, freqItems).map { case (t, c) =>
@@ -352,7 +360,7 @@ class FPTree[T](adaptive: mutable.Map[String, Int]) extends Serializable {
     }
   }
 
-  def getMinimumPrice[Item: ClassTag](freqItems: Array[Item], summary: Summary[T]): Int ={
+  def getMultiplier[Item: ClassTag](freqItems: Array[Item], summary: Summary[T]): Int ={
     val items = summary.nodes.map(i => freqItems(i.item.toString.toInt)).toArray
     var truth : mutable.Map[String, Int] = mutable.Map[String, Int]()
     for(e <- items) yield {
