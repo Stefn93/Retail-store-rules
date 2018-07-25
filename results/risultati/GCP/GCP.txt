@@ -1,0 +1,63 @@
+==========================================
+1.4MB DATASET
+==========================================
+
+----32----
+Itemsets generation elapsed time: 3377 ms
+Rule generation elapsed time: 35 ms
+Total elapsed time: 3412 ms
+
+----64----
+Itemsets generation elapsed time: 3510 ms
+Rule generation elapsed time: 44 ms
+Total elapsed time: 3554 ms
+
+----96----
+Itemsets generation elapsed time: 3619 ms
+Rule generation elapsed time: 38 ms
+Total elapsed time: 3657 ms
+
+----128----
+Itemsets generation elapsed time: 3793 ms
+Rule generation elapsed time: 37 ms
+Total elapsed time: 3830 ms
+
+==========================================
+250MB dataset
+==========================================
+
+1 master, 2 worker, 4vCPUs = 8 cores
+
+----32----
+Itemsets generation elapsed time: 20349 ms
+Rule generation elapsed time: 35 ms
+Total elapsed time: 20384 ms
+
+----64----
+Itemsets generation elapsed time: 20538 ms
+Rule generation elapsed time: 37 ms
+Total elapsed time: 20575 ms
+
+==========================================
+
+1 master, 4 worker, 8vCPUs = 32 cores
+
+----32----
+Itemsets generation elapsed time: 21263 ms
+Rule generation elapsed time: 35 ms
+Total elapsed time: 21298 ms
+
+----64----
+Itemsets generation elapsed time: 20589 ms
+Rule generation elapsed time: 38 ms
+Total elapsed time: 20627 ms
+
+----96----
+Itemsets generation elapsed time: 21735 ms
+Rule generation elapsed time: 42 ms
+Total elapsed time: 21777 ms
+
+----128----
+Itemsets generation elapsed time: 20962 ms
+Rule generation elapsed time: 41 ms
+Total elapsed time: 21003 ms

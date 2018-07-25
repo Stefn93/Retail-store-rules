@@ -1,0 +1,30 @@
+Francesco Suriano, [25.07.18 16:46]
+Itemsets generation elapsed time: 16190 ms
+Rule generation elapsed time: 28 ms
+Total elapsed time: 16218 ms
+num part = 20
+
+Itemsets generation elapsed time: 16300 ms
+Rule generation elapsed time: 32 ms
+Total elapsed time: 16332 ms
+num part = 16
+
+Itemsets generation elapsed time: 16500 ms
+Rule generation elapsed time: 33 ms
+Total elapsed time: 16533 ms
+num part = 10
+
+Itemsets generation elapsed time: 16241 ms
+Rule generation elapsed time: 35 ms
+Total elapsed time: 16276 ms
+num part = 8
+
+Itemsets generation elapsed time: 16161 ms
+Rule generation elapsed time: 30 ms
+Total elapsed time: 16191 ms
+num part = 6
+
+Itemsets generation elapsed time: 17524 ms
+Rule generation elapsed time: 29 ms
+Total elapsed time: 17553 ms
+num part = 1
