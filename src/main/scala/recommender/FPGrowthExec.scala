@@ -1,5 +1,7 @@
 package recommender
 
+import java.io.{File, PrintWriter}
+
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.rdd.RDD
@@ -27,10 +29,11 @@ object FPGrowthExec {
     val itemSetTime = System.currentTimeMillis()
     val model = fpg.run(transactions)
     val endItemSetTime = System.currentTimeMillis()-itemSetTime
-
+    var outItemsets : String = ""
     model.freqItemsets.collect().foreach {
-      itemset => println(DatasetProcessing.getDescriptionFromID(itemset.items).mkString("[", ",", "]") + ", " + itemset.freq)
-      //println(itemset.items.mkString("[", ",", "]") + ", " + itemset.freq) //OLD VERSION
+      itemset => /*println(DatasetProcessing.getDescriptionFromID(itemset.items).mkString("[", ",", "]") + ", " + itemset.freq)
+      println(itemset.items.mkString("[", ",", "]") + ", " + itemset.freq)*/ //OLD VERSION
+      outItemsets += DatasetProcessing.getDescriptionFromID(itemset.items).mkString("[", ",", "]") + ", " + itemset.freq + "\n"
     }
 
     /** Rule generation with minConfidence threshold */
@@ -39,18 +42,27 @@ object FPGrowthExec {
     val rules = model.generateAssociationRules(minConfidence)
     val endRulesTime = System.currentTimeMillis()-rulesTime
 
+    var outRules : String = ""
       rules.collect().foreach { rule =>
 
-      println(
+      /*println(
         DatasetProcessing.getDescriptionFromID(rule.antecedent).mkString("[", ",", "]")
           + " => " + DatasetProcessing.getDescriptionFromID(rule.consequent).mkString("[", ",", "]")
           + ", " + rule.confidence)
 
-      /*println(
+      println(
         rule.antecedent.mkString("[", ",", "]")
           + " => " + rule.consequent.mkString("[", ",", "]")
           + ", " + rule.confidence)*/
+      outRules += DatasetProcessing.getDescriptionFromID(rule.antecedent).mkString("[", ",", "]") + " => " + DatasetProcessing.getDescriptionFromID(rule.consequent).mkString("[", ",", "]") + ", " + rule.confidence + "\n"
     }
+
+    val itemsetFile = new PrintWriter(new File("itemsets"+ endItemSetTime + "ms.csv" ))
+    itemsetFile.write(outItemsets)
+    itemsetFile.close()
+    val rulesFile = new PrintWriter(new File("rules"+ endRulesTime + "ms.csv" ))
+    rulesFile.write(outRules)
+    rulesFile.close()
 
     /** PROGRAM END */
     println("\nItemsets generation elapsed time: " + endItemSetTime + " ms")

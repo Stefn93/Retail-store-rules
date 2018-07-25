@@ -7,7 +7,8 @@ import org.apache.spark.mllib.fpm.AssociationRules.Rule
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.reflect.ClassTag
-import org.apache.spark.{HashPartitioner, Logging, Partitioner, SparkException}
+import org.apache.spark.{HashPartitioner,Partitioner, SparkException}
+import org.apache.log4j.LogManager
 import org.apache.spark.rdd.RDD
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.mllib.fpm.FPGrowthModel
@@ -18,7 +19,7 @@ import scala.collection.mutable.ListBuffer
 
 class CustomFPGrowth(private var minSupport: Double,
                      private var numPartitions: Int,
-                     private var adaptive: mutable.Map[String, Int]     ) extends Logging with Serializable {
+                     private var adaptive: mutable.Map[String, Int]     ) extends LogManager with Serializable {
 
   def this() = this(0.3, -1, DatasetProcessing.calculateMultipleSupport())
 
@@ -47,7 +48,7 @@ class CustomFPGrowth(private var minSupport: Double,
 
   def run[Item: ClassTag](data: RDD[Array[Item]]): FPGrowthModel[Item] = {
     if (data.getStorageLevel == StorageLevel.NONE) {  // Livello del disco in cui viene caricato il dataset
-      logWarning("Input data is not cached.")
+      LogManager.getRootLogger.warn("Input data is not cached.")
     }
     // Numero di transazioni
     val count = data.count()

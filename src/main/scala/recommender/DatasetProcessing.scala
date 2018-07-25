@@ -4,7 +4,7 @@ import java.io._
 
 import scala.collection.mutable.ArrayBuffer
 
-object DatasetProcessing extends App {
+object DatasetProcessing {
 
   var transactions = ""
 
