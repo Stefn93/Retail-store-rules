@@ -2,3 +2,4 @@
 target/
 project/
 bin/
+processed_transactions.csv

@@ -21,7 +21,7 @@ class CustomFPGrowth(private var minSupport: Double,
                      private var numPartitions: Int,
                      private var adaptive: mutable.Map[String, Int]     ) extends LogManager with Serializable {
 
-  def this() = this(0.3, -1, DatasetProcessing.calculateMultipleSupport())
+  def this() = this(0.3, -1, scala.collection.mutable.Map[String,Int]())
 
 
   def setMinSupport(minSupport: Double): this.type = {
@@ -40,7 +40,7 @@ class CustomFPGrowth(private var minSupport: Double,
   }
 
   def setAdaptiveMap(adaptive: mutable.Map[String, Int]) : this.type = {
-    require(adaptive.nonEmpty, "Multiple minimum support calculation failed.")
+    //require(adaptive.nonEmpty, "Multiple minimum support calculation failed.")
     this.adaptive = adaptive
     this
   }

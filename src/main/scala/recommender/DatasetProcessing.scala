@@ -2,6 +2,9 @@ package recommender
 import scala.io
 import java.io._
 
+import org.apache.spark.rdd.RDD
+import org.apache.spark.{SparkConf, SparkContext}
+
 import scala.collection.mutable.ArrayBuffer
 
 object DatasetProcessing {
@@ -44,45 +47,27 @@ object DatasetProcessing {
   //createTransactionFile()
   //deleteNoise()
 
-  def calculateMultipleSupport(): scala.collection.mutable.Map[String,Int] =
+  def calculateMultipleSupport(sc: SparkContext): scala.collection.mutable.Map[String,Int] =
   {
-    val bufferedSource = io.Source.fromFile("online_retail_edit.csv")
-    val pw = new PrintWriter(new File("price-value.csv"))
+    val data = sc.textFile("online_retail_edit.csv")
+    //val pw = new PrintWriter(new File("price-value.csv"))
 
     var map = scala.collection.mutable.Map[String,Int]()
-    var newMap = scala.collection.mutable.Map[String,Float]()
+    //var newMap = scala.collection.mutable.Map[String,Float]()
 
-    for (line <- bufferedSource.getLines)
-      {
-        val cols = line.split(",").map(_.trim)
-        val key = cols(1)
-        val value = cols(5).toFloat.toInt
-        if(!map.contains(key))
-          {
-            map.put(key, value)
-          }
-        else
-          {
-            val prevVal = map.getOrElse(key, 0)
-            val newVal = math.ceil((value+prevVal)/2).toInt
-            map.put(key, newVal)
-          }
-      }
+    val items: RDD[Array[String]] = data.map(s => s.trim.split(','))
 
-
-    /*
-
-    val max : Float = map.maxBy(_._2)._2
-    val min : Float= map.minBy(_._2)._2
-
-    val bufferedSource2 = io.Source.fromFile("online_retail_edit.csv")
-    for (line <- bufferedSource2.getLines())
-    {
-      var cols = line.split(",").map(_.trim)
-      newMap.put(cols(1), 1 - (cols(5).toFloat / max))
-    }
-    */
-
+    items.map( v =>
+                if(!map.contains(v(1)))
+                  {
+                    map.put(v(1),v(5).toFloat.toInt)
+                  }
+                else
+                {
+                  val prevVal = map.getOrElse(v(1), 0)
+                  val newVal = math.ceil((v(5).toFloat.toInt+prevVal)/2).toInt
+                  map.put(v(1), newVal)
+                })
     map
   }
   //calculateMultipleSupport()

@@ -18,13 +18,13 @@ object FPGrowthExec {
     rootLogger.setLevel(Level.ERROR)
 
     /** FP-Growth algorithm and Itemset Generation */
-    val data = sc.textFile("processed-transactions.csv")
+    val data = sc.textFile("processed-transactions_2.csv")
     val transactions: RDD[Array[String]] = data.map(s => s.trim.split(' ').distinct)  //Added Distinct
     //data.collect().foreach(println)
     val fpg = new CustomFPGrowth()
       .setMinSupport(0.075)
-      .setNumPartitions(10)
-      .setAdaptiveMap(DatasetProcessing.calculateMultipleSupport())
+      .setNumPartitions(1)
+      .setAdaptiveMap(DatasetProcessing.calculateMultipleSupport(sc))
     /** Start time execution calculation*/
     val itemSetTime = System.currentTimeMillis()
     val model = fpg.run(transactions)
